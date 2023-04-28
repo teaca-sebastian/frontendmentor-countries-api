@@ -1,20 +1,25 @@
 /* eslint-disable react/prop-types */
 import { useState } from 'react'
+import { useContext } from 'react'
+import { QueryContext } from '../context/QueryContext'
 
 const Dropdown = ({ value, items }) => {
 	const [isOpen, setIsOpen] = useState(false)
-    const [selected, setSelected] = useState(null)
+	const { query, setQuery } = useContext(QueryContext)
 
     const handleDropdown = () => {
         setIsOpen(!isOpen)
     }
 
-    const handleSelected = (selection) => {
-        setSelected(selection)
+    const handleSelected = (item) => {
+        setQuery(draft => {
+			draft.region = item
+		})
     }
+
 	return (
-		<div onClick={handleDropdown} className='relative flex w-52 items-center justify-between rounded-md bg-white px-6 py-3 text-sm shadow-sm dark:bg-blue-body'>
-			{value}
+		<div onClick={handleDropdown} className='transition-all duration-300 relative flex w-52 items-center justify-between rounded-md bg-white px-6 py-3 text-sm shadow-sm dark:bg-blue-body dark:text-white text-blue-text'>
+			{query.region ? query.region : value}
 			{isOpen ? (
 				<svg
 					xmlns='http://www.w3.org/2000/svg'
@@ -44,7 +49,7 @@ const Dropdown = ({ value, items }) => {
 			)}
 			{isOpen && <ul className='absolute top-12 rounded-md px-6 py-3 bg-inherit shadow-sm w-52 left-0'>
 				{items?.map((item) => {
-					return <li key={item} className='py-1' onClick={() => handleSelected(item)}>{item}</li>
+					return <li key={item} className='py-1 select-none cursor-pointer' onClick={() => handleSelected(item)}>{item}</li>
 				})}
 			</ul>}
 		</div>
