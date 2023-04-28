@@ -1,6 +1,10 @@
+import Navbar from './components/Navbar'
+
 const App = () => {
 	return (
-    <h1>Test</h1>
+		<>
+			<Navbar />
+		</>
 	)
 }
 export default App
