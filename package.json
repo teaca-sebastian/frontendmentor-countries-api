@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "immer": "^10.0.1",
+    "json-server-deploy": "file:src/server",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "use-immer": "^0.9.0"
