@@ -32,10 +32,10 @@ const Details = () => {
 			<div className='gap-20 py-14 text-blue-text dark:text-white lg:gap-32 lg:flex lg:justify-between'>
 				<img
 					src={state.flags.png}
-					className='mx-auto mb-8 w-full max-w-sm rounded shadow-sm lg:max-w-xl'
+					className='mx-auto lg:mx-0 mb-8 w-full max-w-sm rounded shadow-sm lg:max-w-xl'
 					alt={`${state.demonym} flag`}
 				/>
-				<div>
+				<div className='lg:w-1/2'>
 					<h1 className='text-2xl font-bold sm:text-3xl lg:text-4xl'>{state.name}</h1>
 					<div className='my-5 text-sm lg:text-lg sm:flex sm:gap-10 lg:gap-20'>
 						<ul className='mb-7 space-y-2'>
