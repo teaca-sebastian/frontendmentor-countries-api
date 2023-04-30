@@ -5,14 +5,13 @@ import CountriesGrid from './components/CountriesGrid'
 import data from './assets/data.json'
 import { QueryContext } from './context/QueryContext'
 
-
 const App = () => {
 	const [query, setQuery] = useImmer({
 		input: '',
-		region: null
+		region: null,
 	})
 	return (
-		<div className='bg-gray-bg transition-all duration-300 dark:bg-blue-bg min-h-screen'>
+		<div className='min-h-screen bg-gray-bg transition-all duration-300 dark:bg-blue-bg'>
 			<Navbar />
 			<main className='mt-6 px-5 transition-all duration-300 md:px-16'>
 				<QueryContext.Provider value={{ query, setQuery }}>
