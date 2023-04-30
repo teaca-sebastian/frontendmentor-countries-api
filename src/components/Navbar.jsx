@@ -4,7 +4,7 @@ const Navbar = () => {
     const [currentTheme, toggleTheme] = useDarkToggle()
 	return (
 		<div className='transition-all duration-300 bg-white select-none dark:bg-blue-body md:px-16 px-5 py-7 flex items-center justify-between text-blue-text shadow-sm dark:text-white'>
-			<a href='#' className="font-bold md:text-xl">Where in the world?</a>
+			<a href='/' className="font-bold md:text-xl">Where in the world?</a>
 			<div onClick={toggleTheme} className='cursor-pointer flex items-center justify-center font-semibold gap-1 md:gap-2 text-sm md:text-lg'>
 				<svg
 					xmlns='http://www.w3.org/2000/svg'

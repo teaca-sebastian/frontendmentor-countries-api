@@ -1,27 +1,26 @@
-import Navbar from './components/Navbar'
-import { useImmer } from 'use-immer'
-import SearchInputs from './components/SearchInputs'
-import CountriesGrid from './components/CountriesGrid'
-import data from './assets/data.json'
-import { QueryContext } from './context/QueryContext'
+// react-router
+import {
+	createBrowserRouter,
+	createRoutesFromElements,
+	Route,
+	RouterProvider,
+} from 'react-router-dom'
+// layouts
+import RootLayout from './layouts/RootLayout'
+// pages
+import Home from './pages/Home'
+import Details from './pages/Details'
+
+const router = createBrowserRouter(
+	createRoutesFromElements(
+	<Route path='/' element={<RootLayout />}>
+		<Route index element={<Home />}></Route>
+		<Route path='/:country' element={<Details />}></Route>
+	</Route>
+	)
+)
 
 const App = () => {
-	const [query, setQuery] = useImmer({
-		input: '',
-		region: null,
-	})
-	return (
-		<div className='min-h-screen bg-gray-bg transition-all duration-300 dark:bg-blue-bg'>
-			<Navbar />
-			<main className='mt-6 px-5 transition-all duration-300 md:px-16'>
-				<QueryContext.Provider value={{ query, setQuery }}>
-					<SearchInputs />
-					<CountriesGrid countries={data} />
-				</QueryContext.Provider>
-			</main>
-		</div>
-	)
+	return <RouterProvider router={router} />
 }
 export default App
-
-// add transitions to darkmode
