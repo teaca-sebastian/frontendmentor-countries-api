@@ -13,9 +13,9 @@ import Details from './pages/Details'
 
 const router = createBrowserRouter(
 	createRoutesFromElements(
-	<Route path='/' element={<RootLayout />}>
+	<Route path='/frontendmentor-countries-api' element={<RootLayout />}>
 		<Route index element={<Home />}></Route>
-		<Route path='/:country' element={<Details />}></Route>
+		<Route path='/frontendmentor-countries-api/:country' element={<Details />}></Route>
 	</Route>
 	)
 )

@@ -14,7 +14,7 @@ const Details = () => {
 
 	return (
 		<div>
-			<Link to={'/'} className='flex w-24 items-center justify-center gap-2 rounded bg-white py-2 text-sm shadow-md transition-all duration-300 dark:bg-blue-body dark:text-white'>
+			<Link to={'/frontendmentor-countries-api'} className='flex w-24 items-center justify-center gap-2 rounded bg-white py-2 text-sm shadow-md transition-all duration-300 dark:bg-blue-body dark:text-white'>
 				<svg
 					xmlns='http://www.w3.org/2000/svg'
 					viewBox='0 0 20 20'

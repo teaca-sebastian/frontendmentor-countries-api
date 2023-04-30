@@ -20,7 +20,7 @@ const CountriesGrid = ({ countries }) => {
 		<div className='mx-auto my-10 grid w-10/12 grid-cols-1 gap-14 sm:grid-cols-2 md:w-full md:grid-cols-3 lg:grid-cols-4'>
 			{queriedCountries?.map((country) => {
 				return (
-					<Link key={country.numericCode} state={country} to={`/${country.name.replace(/\s+/g, '-').toLowerCase()}`}>
+					<Link key={country.numericCode} state={country} to={`/frontendmentor-countries-api/${country.name.replace(/\s+/g, '-').toLowerCase()}`}>
 						<div
 							className='mx-auto w-60 rounded-lg bg-white shadow-sm dark:bg-blue-body dark:text-white md:w-auto'
 						>
