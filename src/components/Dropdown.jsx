@@ -7,18 +7,21 @@ const Dropdown = ({ value, items }) => {
 	const [isOpen, setIsOpen] = useState(false)
 	const { query, setQuery } = useContext(QueryContext)
 
-    const handleDropdown = () => {
-        setIsOpen(!isOpen)
-    }
+	const handleDropdown = () => {
+		setIsOpen(!isOpen)
+	}
 
-    const handleSelected = (item) => {
-        setQuery(draft => {
+	const handleSelected = (item) => {
+		setQuery((draft) => {
 			draft.region = item
 		})
-    }
+	}
 
 	return (
-		<div onClick={handleDropdown} className='transition-all duration-300 relative flex w-52 items-center justify-between rounded-md bg-white px-6 py-3 text-sm shadow-sm dark:bg-blue-body dark:text-white text-blue-text'>
+		<div
+			onClick={handleDropdown}
+			className='relative flex w-52 cursor-pointer items-center justify-between rounded-md bg-white px-6 py-3 text-sm text-blue-text shadow-sm transition-all duration-300 dark:bg-blue-body dark:text-white'
+		>
 			{query.region ? query.region : value}
 			{isOpen ? (
 				<svg
@@ -47,11 +50,21 @@ const Dropdown = ({ value, items }) => {
 					/>
 				</svg>
 			)}
-			{isOpen && <ul className='absolute top-12 rounded-md px-6 py-3 bg-inherit shadow-sm w-52 left-0'>
-				{items?.map((item) => {
-					return <li key={item} className='py-1 select-none cursor-pointer' onClick={() => handleSelected(item)}>{item}</li>
-				})}
-			</ul>}
+			{isOpen && (
+				<ul className='absolute left-0 top-12 w-52 rounded-md bg-inherit px-6 py-3 shadow-sm'>
+					{items?.map((item) => {
+						return (
+							<li
+								key={item}
+								className='cursor-pointer select-none py-1'
+								onClick={() => handleSelected(item)}
+							>
+								{item}
+							</li>
+						)
+					})}
+				</ul>
+			)}
 		</div>
 	)
 }
